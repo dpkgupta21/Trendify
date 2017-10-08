@@ -31,5 +31,10 @@ class HomeViewController: UIViewController {
             self.revealViewController().revealToggle(self);
         
         }
+        
+        LoginResponseModel.Login(username: "dpk.gupta21@gmail.com", password: "123456") { (data, error) in
+            
+        }
+        
     }
 }

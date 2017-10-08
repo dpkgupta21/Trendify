@@ -33,21 +33,9 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     func  loadData()  {
-        DataManager.getTopAppsDataFromFileWithSuccess { (data) -> Void in
-            
-            // 1
-            var json: (Any)? = nil
-            do {
-                json = try JSONSerialization.jsonObject(with: data)
-            } catch {
-            }
-            
-            let dictionary = json as? [Any]
-            
-            // 2
-            for item in dictionary!{
-                self.categoryItems.append(CategoryItem(json: item as! [String : Any])!)
-            }
+        
+        CategoryItem.GetMenuItems { (data) in
+            self.categoryItems = data
             DispatchQueue.main.async {
                 self.MenuTbl.reloadData()};
         }

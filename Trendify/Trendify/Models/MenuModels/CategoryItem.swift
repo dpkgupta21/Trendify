@@ -24,8 +24,30 @@ class CategoryItem: Decodable {
         categoryImageName = ("categoryImageName" <~~ json)!
         categoryNameForWebservice = ("categoryNameForWebservice" <~~ json)!
         subCategoryList = ("subCategoryList" <~~ json)!
-        headerPositions = ("headerPositions" <~~ json)!
-        nonClickablePostion = ("nonClickablePostion" <~~ json)!
+        headerPositions = ("headerPositions" <~~ json)
+        nonClickablePostion = ("nonClickablePostion" <~~ json)
         isExpanded = false;
     }
+    
+    public static func GetMenuItems(completion: @escaping (_ data: [CategoryItem]) -> Void){
+        
+        DataManager.getTopAppsDataFromFileWithSuccess{
+                (data) -> Void in
+                var categoryItems:[CategoryItem] = [CategoryItem]()
+                var json: (Any)? = nil
+                do {
+                    json = try JSONSerialization.jsonObject(with: data)
+                } catch {
+                }
+                
+                let dictionary = json as? [Any]
+                
+                for item in dictionary!{
+                    categoryItems.append(CategoryItem(json: item as! [String : Any])!)
+                }
+                completion(categoryItems)
+        }
+        
+    }
+    
 }
