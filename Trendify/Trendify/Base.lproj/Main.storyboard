@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -73,10 +73,10 @@
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MenuTVCell" rowHeight="59" id="Lql-lN-nH1" customClass="MenuTVCell" customModule="Trendify" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.5" width="375" height="59"/>
+                                        <rect key="frame" x="0.0" y="56" width="375" height="59"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Lql-lN-nH1" id="Ufy-dN-x8l">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="58.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qcb-t8-GqV">
@@ -169,7 +169,49 @@
                     <view key="view" contentMode="scaleToFill" id="R1y-Sx-Hi8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XIZ-8s-uYi">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dxg-wS-QKM">
+                                    <size key="itemSize" width="351" height="195"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HomeCVCell" id="WND-pI-cLy" customClass="HomeCVCell" customModule="Trendify" customModuleProvider="target">
+                                        <rect key="frame" x="12" y="0.0" width="351" height="195"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="351" height="195"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bzZ-Rw-C0g">
+                                                    <rect key="frame" x="0.0" y="0.0" width="351" height="195"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="bzZ-Rw-C0g" secondAttribute="bottom" id="2mG-yd-eXS"/>
+                                            <constraint firstAttribute="trailing" secondItem="bzZ-Rw-C0g" secondAttribute="trailing" id="A46-4k-ESE"/>
+                                            <constraint firstItem="bzZ-Rw-C0g" firstAttribute="top" secondItem="WND-pI-cLy" secondAttribute="top" id="SW8-qY-ydH"/>
+                                            <constraint firstItem="bzZ-Rw-C0g" firstAttribute="leading" secondItem="WND-pI-cLy" secondAttribute="leading" id="czh-1V-ast"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="ImgIcon" destination="bzZ-Rw-C0g" id="Su2-Sp-JgS"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XIZ-8s-uYi" firstAttribute="top" secondItem="fRc-nK-gEC" secondAttribute="bottom" id="Rhq-ZD-Smd"/>
+                            <constraint firstItem="3RS-GS-IOO" firstAttribute="top" secondItem="XIZ-8s-uYi" secondAttribute="bottom" id="Xvx-cG-erB"/>
+                            <constraint firstItem="XIZ-8s-uYi" firstAttribute="leading" secondItem="R1y-Sx-Hi8" secondAttribute="leading" id="lMb-1k-o7m"/>
+                            <constraint firstAttribute="trailing" secondItem="XIZ-8s-uYi" secondAttribute="trailing" id="rvf-ph-h8A"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="rBl-W8-ZFl">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="1op-y8-d1x">

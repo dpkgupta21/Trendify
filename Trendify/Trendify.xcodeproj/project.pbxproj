@@ -33,6 +33,8 @@
 		26D2960A1F8A77CE0078E9A9 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D296081F8A77CE0078E9A9 /* StringExtension.swift */; };
 		26D2960B1F8A77CE0078E9A9 /* UserDeafults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D296091F8A77CE0078E9A9 /* UserDeafults.swift */; };
 		26D2960D1F8A78A10078E9A9 /* WebserviceCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D2960C1F8A78A10078E9A9 /* WebserviceCommunication.swift */; };
+		4EB06CC71F8F4C5100FD4C68 /* HomeCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB06CC61F8F4C5100FD4C68 /* HomeCVCell.swift */; };
+		4EB06CC91F8F50BF00FD4C68 /* HomeResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB06CC81F8F50BF00FD4C68 /* HomeResponseModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +70,8 @@
 		26D296081F8A77CE0078E9A9 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		26D296091F8A77CE0078E9A9 /* UserDeafults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDeafults.swift; sourceTree = "<group>"; };
 		26D2960C1F8A78A10078E9A9 /* WebserviceCommunication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebserviceCommunication.swift; sourceTree = "<group>"; };
+		4EB06CC61F8F4C5100FD4C68 /* HomeCVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCVCell.swift; sourceTree = "<group>"; };
+		4EB06CC81F8F50BF00FD4C68 /* HomeResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeResponseModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +171,7 @@
 		267B6AF31F71822400DAC87F /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				4EB06CC51F8F391100FD4C68 /* Cells */,
 				26851FF01F74276C003A746B /* HomeViewController.swift */,
 			);
 			path = Home;
@@ -186,6 +191,7 @@
 			children = (
 				268520281F743200003A746B /* MenuModels */,
 				26D296061F8A75A10078E9A9 /* LoginResponseModel.swift */,
+				4EB06CC81F8F50BF00FD4C68 /* HomeResponseModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -270,6 +276,14 @@
 				26C291521F79970200FEB1B0 /* UIView+IBUIView.m */,
 			);
 			path = "UIView+IBUIView";
+			sourceTree = "<group>";
+		};
+		4EB06CC51F8F391100FD4C68 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4EB06CC61F8F4C5100FD4C68 /* HomeCVCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -358,7 +372,9 @@
 				2685201F1F743157003A746B /* ExtensionDictionary.swift in Sources */,
 				26851FFC1F742E4C003A746B /* MenuTVCell.swift in Sources */,
 				26D296071F8A75A10078E9A9 /* LoginResponseModel.swift in Sources */,
+				4EB06CC91F8F50BF00FD4C68 /* HomeResponseModel.swift in Sources */,
 				26D2960D1F8A78A10078E9A9 /* WebserviceCommunication.swift in Sources */,
+				4EB06CC71F8F4C5100FD4C68 /* HomeCVCell.swift in Sources */,
 				26D2960A1F8A77CE0078E9A9 /* StringExtension.swift in Sources */,
 				268520201F743157003A746B /* Gloss.swift in Sources */,
 				267B6ADA1F7181A000DAC87F /* AppDelegate.swift in Sources */,

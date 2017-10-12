@@ -34,7 +34,7 @@ let kTNLDebugError:Bool  = true   // Show error NSLOG
 let baseURL = "http://webservice.trendyfy.com/myservice.asmx/";
 
 let METHOD_LOGIN = "CustomerloginJSON"
-let METHOD_SERVERTIME = "FetchServerTime"
+let METHOD_HOMEITEMS = "MainMasterMobileJSON"
 let METHOD_INSERTCLOCK = "InsertClock"
 let METHOD_GETLOGS = "fetchLogs"
 let METHOD_GETTERMINALS = "fetchTerminals"

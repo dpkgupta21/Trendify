@@ -11,7 +11,7 @@ import UIKit
 class LoginResponseModel: Decodable {
     
     public var a_Id : Int?
-    public var name :String?
+    public var name : String?
     public var password : String?
     public var email : String?
     public var address : String?
