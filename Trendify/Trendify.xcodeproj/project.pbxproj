@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		186494971F8F9A86009ABCDF /* ProductListNewResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186494961F8F9A86009ABCDF /* ProductListNewResponseModel.swift */; };
+		1864949B1F8F9DCC009ABCDF /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1864949A1F8F9DCC009ABCDF /* ProductListViewController.swift */; };
+		1864949F1F8F9E18009ABCDF /* ProductCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1864949E1F8F9E18009ABCDF /* ProductCVCell.swift */; };
 		267B6ADA1F7181A000DAC87F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267B6AD91F7181A000DAC87F /* AppDelegate.swift */; };
 		267B6ADF1F7181A000DAC87F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 267B6ADD1F7181A000DAC87F /* Main.storyboard */; };
 		267B6AE41F7181A000DAC87F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 267B6AE31F7181A000DAC87F /* Assets.xcassets */; };
@@ -35,9 +38,13 @@
 		26D2960D1F8A78A10078E9A9 /* WebserviceCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D2960C1F8A78A10078E9A9 /* WebserviceCommunication.swift */; };
 		4EB06CC71F8F4C5100FD4C68 /* HomeCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB06CC61F8F4C5100FD4C68 /* HomeCVCell.swift */; };
 		4EB06CC91F8F50BF00FD4C68 /* HomeResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB06CC81F8F50BF00FD4C68 /* HomeResponseModel.swift */; };
+		888FBE40F381AE56D22C5358 /* Pods_Trendify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64B29099012AA832919DE8B7 /* Pods_Trendify.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		186494961F8F9A86009ABCDF /* ProductListNewResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductListNewResponseModel.swift; sourceTree = "<group>"; };
+		1864949A1F8F9DCC009ABCDF /* ProductListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
+		1864949E1F8F9E18009ABCDF /* ProductCVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCVCell.swift; sourceTree = "<group>"; };
 		267B6AD61F7181A000DAC87F /* Trendify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trendify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		267B6AD91F7181A000DAC87F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		267B6ADE1F7181A000DAC87F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -72,6 +79,9 @@
 		26D2960C1F8A78A10078E9A9 /* WebserviceCommunication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebserviceCommunication.swift; sourceTree = "<group>"; };
 		4EB06CC61F8F4C5100FD4C68 /* HomeCVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCVCell.swift; sourceTree = "<group>"; };
 		4EB06CC81F8F50BF00FD4C68 /* HomeResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeResponseModel.swift; sourceTree = "<group>"; };
+		64B29099012AA832919DE8B7 /* Pods_Trendify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trendify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		663DA014CB09777785D6B4F2 /* Pods-Trendify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trendify.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Trendify/Pods-Trendify.debug.xcconfig"; sourceTree = "<group>"; };
+		9D2615180368A48F1696DADD /* Pods-Trendify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trendify.release.xcconfig"; path = "Pods/Target Support Files/Pods-Trendify/Pods-Trendify.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,17 +89,47 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				888FBE40F381AE56D22C5358 /* Pods_Trendify.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01F8D46E4998C81809677C52 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				663DA014CB09777785D6B4F2 /* Pods-Trendify.debug.xcconfig */,
+				9D2615180368A48F1696DADD /* Pods-Trendify.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		186494981F8F9AB5009ABCDF /* ProductList */ = {
+			isa = PBXGroup;
+			children = (
+				186494991F8F9D95009ABCDF /* Cells */,
+				1864949A1F8F9DCC009ABCDF /* ProductListViewController.swift */,
+			);
+			path = ProductList;
+			sourceTree = "<group>";
+		};
+		186494991F8F9D95009ABCDF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				1864949E1F8F9E18009ABCDF /* ProductCVCell.swift */,
+			);
+			name = Cells;
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		267B6ACD1F7181A000DAC87F = {
 			isa = PBXGroup;
 			children = (
 				267B6AD71F7181A000DAC87F /* Products */,
 				267B6AD81F7181A000DAC87F /* Trendify */,
+				01F8D46E4998C81809677C52 /* Pods */,
+				CF289B9C6730E3363DDDA6AA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +167,7 @@
 		267B6AEE1F7181C600DAC87F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				186494981F8F9AB5009ABCDF /* ProductList */,
 				267B6AF61F7186AF00DAC87F /* Cart */,
 				267B6AF41F71822C00DAC87F /* Menu */,
 				267B6AF31F71822400DAC87F /* Home */,
@@ -192,6 +233,7 @@
 				268520281F743200003A746B /* MenuModels */,
 				26D296061F8A75A10078E9A9 /* LoginResponseModel.swift */,
 				4EB06CC81F8F50BF00FD4C68 /* HomeResponseModel.swift */,
+				186494961F8F9A86009ABCDF /* ProductListNewResponseModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -286,6 +328,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		CF289B9C6730E3363DDDA6AA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				64B29099012AA832919DE8B7 /* Pods_Trendify.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -293,9 +343,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 267B6AEB1F7181A000DAC87F /* Build configuration list for PBXNativeTarget "Trendify" */;
 			buildPhases = (
+				B178E4E586FBCE6DE63FAC63 /* [CP] Check Pods Manifest.lock */,
 				267B6AD21F7181A000DAC87F /* Sources */,
 				267B6AD31F7181A000DAC87F /* Frameworks */,
 				267B6AD41F7181A000DAC87F /* Resources */,
+				BBD4B4DCD18ACD4E998ECE26 /* [CP] Embed Pods Frameworks */,
+				908FFCA9D48056B5FBD37C3E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -355,6 +408,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		908FFCA9D48056B5FBD37C3E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Trendify/Pods-Trendify-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B178E4E586FBCE6DE63FAC63 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Trendify-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BBD4B4DCD18ACD4E998ECE26 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Trendify/Pods-Trendify-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Trendify/Pods-Trendify-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		267B6AD21F7181A000DAC87F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -362,6 +471,7 @@
 			files = (
 				26851FF11F74276C003A746B /* HomeViewController.swift in Sources */,
 				26D2960B1F8A77CE0078E9A9 /* UserDeafults.swift in Sources */,
+				1864949B1F8F9DCC009ABCDF /* ProductListViewController.swift in Sources */,
 				267B6AF81F7186CC00DAC87F /* MenuViewController.swift in Sources */,
 				26C291571F7999DA00FEB1B0 /* Utility.swift in Sources */,
 				2685201C1F743157003A746B /* Encoder.swift in Sources */,
@@ -375,8 +485,10 @@
 				4EB06CC91F8F50BF00FD4C68 /* HomeResponseModel.swift in Sources */,
 				26D2960D1F8A78A10078E9A9 /* WebserviceCommunication.swift in Sources */,
 				4EB06CC71F8F4C5100FD4C68 /* HomeCVCell.swift in Sources */,
+				1864949F1F8F9E18009ABCDF /* ProductCVCell.swift in Sources */,
 				26D2960A1F8A77CE0078E9A9 /* StringExtension.swift in Sources */,
 				268520201F743157003A746B /* Gloss.swift in Sources */,
+				186494971F8F9A86009ABCDF /* ProductListNewResponseModel.swift in Sources */,
 				267B6ADA1F7181A000DAC87F /* AppDelegate.swift in Sources */,
 				2685201B1F743157003A746B /* Decoder.swift in Sources */,
 				2685202C1F743457003A746B /* CategoryItem.swift in Sources */,
@@ -505,6 +617,7 @@
 		};
 		267B6AEC1F7181A000DAC87F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 663DA014CB09777785D6B4F2 /* Pods-Trendify.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Trendify/Info.plist;
@@ -519,6 +632,7 @@
 		};
 		267B6AED1F7181A000DAC87F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D2615180368A48F1696DADD /* Pods-Trendify.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Trendify/Info.plist;

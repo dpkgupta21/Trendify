@@ -35,7 +35,7 @@ let baseURL = "http://webservice.trendyfy.com/myservice.asmx/";
 
 let METHOD_LOGIN = "CustomerloginJSON"
 let METHOD_HOMEITEMS = "MainMasterMobileJSON"
-let METHOD_INSERTCLOCK = "InsertClock"
+let METHOD_PRODUCTLISTITEMS = "GetProductJSONnew"
 let METHOD_GETLOGS = "fetchLogs"
 let METHOD_GETTERMINALS = "fetchTerminals"
 let METHOD_GETROLLCALL = "FetchRollCall"

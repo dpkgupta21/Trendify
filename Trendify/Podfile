@@ -1,0 +1,10 @@
+
+platform :ios, ‘8.0’
+
+target 'Trendify'
+  
+use_frameworks!
+
+pod 'SDWebImage', '~> 4.0'
+
+pod 'MBProgressHUD'

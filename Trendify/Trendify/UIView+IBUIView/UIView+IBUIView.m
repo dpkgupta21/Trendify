@@ -9,7 +9,7 @@
 #import "UIView+IBUIView.h"
 
 @implementation UIView (IBUIView)
-@dynamic borderColor,borderWidth,cornerRadius,masksToBounds;
+@dynamic borderColor,borderWidth,cornerRadius,masksToBounds,shadowWidth;
 -(void)setBorderColor:(UIColor *)borderColor{
     [self.layer setBorderColor:borderColor.CGColor];
 }
@@ -23,6 +23,12 @@
 }
 -(void)setMasksToBounds:(BOOL)masksToBounds{
     [self.layer setMasksToBounds:masksToBounds];
+}
+
+-(void)setShadowWidth:(NSInteger)shadowWidth{
+    self.layer.shadowColor = [[UIColor grayColor] CGColor];
+    self.layer.shadowOpacity = 0.5f;
+    self.layer.shadowOffset = CGSizeMake(shadowWidth, shadowWidth);
 }
 
 @end
