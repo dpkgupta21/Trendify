@@ -29,6 +29,7 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     @IBAction func BtnHomeClicked(_ sender: Any) {
+        AppNavigation.ChangeToHomeVC(oldVC: self)
         self.revealViewController().revealToggle(self);
     }
     
@@ -73,7 +74,33 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        AppNavigation.ChangeToProductVC(oldVC: self,
+                                        pageType: categoryItems[indexPath.section].categoryNameForWebservice!,
+                                        categoryid: "",
+                                        itemType: (categoryItems[indexPath.section].subCategoryListForWebservice?[indexPath.row])!)
         self.revealViewController().revealToggle(self);
+
+        switch(indexPath.section){
+        case 0:
+            break;
+        case 1:
+            //String; itemName = categoryItems[indexPath.section].subCategoryListForWebservice?[indexPath.row];
+            //String; pageType = GroupCheckHelper.groupHeading(groupPosition: indexPath.section, childItem: itemName)
+            //if (pageType ?? "").isEmpty {
+            //    pageType = categoryItems[indexPath.section].categoryNameForWebservice;
+            //}
+            
+                        break;
+        case 7:
+            break;
+        case 8:
+            break;
+        case 9:
+            break;
+            
+        default:
+            break;
+        }
     }
     
     func HeaderTapped(_ sender: Any) {

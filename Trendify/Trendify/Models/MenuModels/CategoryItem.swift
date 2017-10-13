@@ -24,6 +24,7 @@ class CategoryItem: Decodable {
         categoryImageName = ("categoryImageName" <~~ json)!
         categoryNameForWebservice = ("categoryNameForWebservice" <~~ json)!
         subCategoryList = ("subCategoryList" <~~ json)!
+        subCategoryListForWebservice = ("subCategoryListForWebservice" <~~ json)!
         headerPositions = ("headerPositions" <~~ json)
         nonClickablePostion = ("nonClickablePostion" <~~ json)
         isExpanded = false;

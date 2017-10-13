@@ -69,10 +69,12 @@ class HomeViewController: UIViewController , UICollectionViewDelegate,UICollecti
                         sizeForItemAt indexPath: IndexPath) -> CGSize
     {
         if(indexPath.row < 2){
-            var size = CGSize(width: collectionView.frame.width, height: 100)
+            let height = (collectionView.frame.width / 2  - 10);
+            let size = CGSize(width: collectionView.frame.width, height: height)
             return size
         }else{
-            var size = CGSize(width: collectionView.frame.width / 2  - 5, height: 100)
+            let width = collectionView.frame.width / 2  - 10;
+            let size = CGSize(width: width, height: width)
             return size
         }
         
@@ -80,7 +82,11 @@ class HomeViewController: UIViewController , UICollectionViewDelegate,UICollecti
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "ProductListSegue", sender: nil)
+
+        AppNavigation.ChangeToProductVC(oldVC: self,
+                                        pageType: categoryItems[indexPath.row].pageType!,
+                                        categoryid: String(describing: categoryItems[indexPath.row].categoryid),
+                                        itemType: categoryItems[indexPath.row].itemType!)
     }
     
     

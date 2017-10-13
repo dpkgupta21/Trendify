@@ -10,6 +10,13 @@
 		186494971F8F9A86009ABCDF /* ProductListNewResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186494961F8F9A86009ABCDF /* ProductListNewResponseModel.swift */; };
 		1864949B1F8F9DCC009ABCDF /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1864949A1F8F9DCC009ABCDF /* ProductListViewController.swift */; };
 		1864949F1F8F9E18009ABCDF /* ProductCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1864949E1F8F9E18009ABCDF /* ProductCVCell.swift */; };
+		18B4B4E51F9096C4000FEBCD /* AppNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B4B4E41F9096C4000FEBCD /* AppNavigation.swift */; };
+		18B4B4E71F90B433000FEBCD /* GroupCheckHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B4B4E61F90B433000FEBCD /* GroupCheckHelper.swift */; };
+		18B4B4EA1F90B76C000FEBCD /* ProductDetailControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B4B4E91F90B76C000FEBCD /* ProductDetailControllerViewController.swift */; };
+		18B4B4EF1F90CF97000FEBCD /* ProductNameTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B4B4EE1F90CF97000FEBCD /* ProductNameTVCell.swift */; };
+		18B4B4F11F90CFA8000FEBCD /* ProductSizeTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B4B4F01F90CFA8000FEBCD /* ProductSizeTVCell.swift */; };
+		18B4B4F31F90CFBD000FEBCD /* ProductQtyTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B4B4F21F90CFBD000FEBCD /* ProductQtyTVCell.swift */; };
+		18B4B4F51F90D007000FEBCD /* ProductImageTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B4B4F41F90D007000FEBCD /* ProductImageTVCell.swift */; };
 		267B6ADA1F7181A000DAC87F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267B6AD91F7181A000DAC87F /* AppDelegate.swift */; };
 		267B6ADF1F7181A000DAC87F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 267B6ADD1F7181A000DAC87F /* Main.storyboard */; };
 		267B6AE41F7181A000DAC87F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 267B6AE31F7181A000DAC87F /* Assets.xcassets */; };
@@ -45,6 +52,13 @@
 		186494961F8F9A86009ABCDF /* ProductListNewResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductListNewResponseModel.swift; sourceTree = "<group>"; };
 		1864949A1F8F9DCC009ABCDF /* ProductListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
 		1864949E1F8F9E18009ABCDF /* ProductCVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCVCell.swift; sourceTree = "<group>"; };
+		18B4B4E41F9096C4000FEBCD /* AppNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNavigation.swift; sourceTree = "<group>"; };
+		18B4B4E61F90B433000FEBCD /* GroupCheckHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupCheckHelper.swift; sourceTree = "<group>"; };
+		18B4B4E91F90B76C000FEBCD /* ProductDetailControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailControllerViewController.swift; sourceTree = "<group>"; };
+		18B4B4EE1F90CF97000FEBCD /* ProductNameTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductNameTVCell.swift; sourceTree = "<group>"; };
+		18B4B4F01F90CFA8000FEBCD /* ProductSizeTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductSizeTVCell.swift; sourceTree = "<group>"; };
+		18B4B4F21F90CFBD000FEBCD /* ProductQtyTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductQtyTVCell.swift; sourceTree = "<group>"; };
+		18B4B4F41F90D007000FEBCD /* ProductImageTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductImageTVCell.swift; sourceTree = "<group>"; };
 		267B6AD61F7181A000DAC87F /* Trendify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trendify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		267B6AD91F7181A000DAC87F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		267B6ADE1F7181A000DAC87F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -123,6 +137,26 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		18B4B4E81F90B6F2000FEBCD /* ProductDetail */ = {
+			isa = PBXGroup;
+			children = (
+				18B4B4EB1F90B786000FEBCD /* Cells */,
+				18B4B4E91F90B76C000FEBCD /* ProductDetailControllerViewController.swift */,
+			);
+			path = ProductDetail;
+			sourceTree = "<group>";
+		};
+		18B4B4EB1F90B786000FEBCD /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				18B4B4EE1F90CF97000FEBCD /* ProductNameTVCell.swift */,
+				18B4B4F01F90CFA8000FEBCD /* ProductSizeTVCell.swift */,
+				18B4B4F21F90CFBD000FEBCD /* ProductQtyTVCell.swift */,
+				18B4B4F41F90D007000FEBCD /* ProductImageTVCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		267B6ACD1F7181A000DAC87F = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +201,7 @@
 		267B6AEE1F7181C600DAC87F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				18B4B4E81F90B6F2000FEBCD /* ProductDetail */,
 				186494981F8F9AB5009ABCDF /* ProductList */,
 				267B6AF61F7186AF00DAC87F /* Cart */,
 				267B6AF41F71822C00DAC87F /* Menu */,
@@ -183,6 +218,8 @@
 				26D296081F8A77CE0078E9A9 /* StringExtension.swift */,
 				26D296091F8A77CE0078E9A9 /* UserDeafults.swift */,
 				26C291561F7999DA00FEB1B0 /* Utility.swift */,
+				18B4B4E41F9096C4000FEBCD /* AppNavigation.swift */,
+				18B4B4E61F90B433000FEBCD /* GroupCheckHelper.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -473,21 +510,27 @@
 				26D2960B1F8A77CE0078E9A9 /* UserDeafults.swift in Sources */,
 				1864949B1F8F9DCC009ABCDF /* ProductListViewController.swift in Sources */,
 				267B6AF81F7186CC00DAC87F /* MenuViewController.swift in Sources */,
+				18B4B4E71F90B433000FEBCD /* GroupCheckHelper.swift in Sources */,
 				26C291571F7999DA00FEB1B0 /* Utility.swift in Sources */,
 				2685201C1F743157003A746B /* Encoder.swift in Sources */,
+				18B4B4E51F9096C4000FEBCD /* AppNavigation.swift in Sources */,
 				2685201E1F743157003A746B /* ExtensionDecodable.swift in Sources */,
 				26C291531F79970200FEB1B0 /* UIView+IBUIView.m in Sources */,
 				2685201D1F743157003A746B /* ExtensionArray.swift in Sources */,
 				268520221F743157003A746B /* Operators.swift in Sources */,
 				2685201F1F743157003A746B /* ExtensionDictionary.swift in Sources */,
 				26851FFC1F742E4C003A746B /* MenuTVCell.swift in Sources */,
+				18B4B4EA1F90B76C000FEBCD /* ProductDetailControllerViewController.swift in Sources */,
 				26D296071F8A75A10078E9A9 /* LoginResponseModel.swift in Sources */,
 				4EB06CC91F8F50BF00FD4C68 /* HomeResponseModel.swift in Sources */,
 				26D2960D1F8A78A10078E9A9 /* WebserviceCommunication.swift in Sources */,
+				18B4B4EF1F90CF97000FEBCD /* ProductNameTVCell.swift in Sources */,
 				4EB06CC71F8F4C5100FD4C68 /* HomeCVCell.swift in Sources */,
 				1864949F1F8F9E18009ABCDF /* ProductCVCell.swift in Sources */,
 				26D2960A1F8A77CE0078E9A9 /* StringExtension.swift in Sources */,
+				18B4B4F31F90CFBD000FEBCD /* ProductQtyTVCell.swift in Sources */,
 				268520201F743157003A746B /* Gloss.swift in Sources */,
+				18B4B4F11F90CFA8000FEBCD /* ProductSizeTVCell.swift in Sources */,
 				186494971F8F9A86009ABCDF /* ProductListNewResponseModel.swift in Sources */,
 				267B6ADA1F7181A000DAC87F /* AppDelegate.swift in Sources */,
 				2685201B1F743157003A746B /* Decoder.swift in Sources */,
@@ -495,6 +538,7 @@
 				26C2914F1F7996FC00FEB1B0 /* UITextField+Additions.swift in Sources */,
 				268520241F743192003A746B /* DataManager.swift in Sources */,
 				267B6AFC1F7186EB00DAC87F /* SWRevealViewController.m in Sources */,
+				18B4B4F51F90D007000FEBCD /* ProductImageTVCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

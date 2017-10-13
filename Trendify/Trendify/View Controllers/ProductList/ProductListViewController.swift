@@ -17,6 +17,11 @@ class ProductListViewController: UIViewController , UICollectionViewDelegate,UIC
     @IBOutlet weak var CollectionVW: UICollectionView!
     var categoryItems:[ProductListNewResponseModel] = [ProductListNewResponseModel]()
     
+    var pageType:String!
+    var itemName:String!
+    var locationID:String!
+    var groceryCategoryId:String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.revealViewController().rearViewRevealOverdraw=0;
@@ -32,7 +37,7 @@ class ProductListViewController: UIViewController , UICollectionViewDelegate,UIC
     
     func GetItems(){
         Utility.showProgressHud(text: "")
-        ProductListNewResponseModel.GetProductItems(pageType: "Men", itemName: "Shirts",locationId: "",groceryCategoryId: "") { (data, error) in
+        ProductListNewResponseModel.GetProductItems(pageType: pageType, itemName: itemName,locationId: locationID,groceryCategoryId: groceryCategoryId) { (data, error) in
             DispatchQueue.main.async {
                 Utility.hideProgressHud()
                 
@@ -59,11 +64,11 @@ class ProductListViewController: UIViewController , UICollectionViewDelegate,UIC
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCVCell", for: indexPath) as! ProductCVCell
+        
         cell.ProductImageIcon.sd_setImage(with: URL(string: "http://trendyfy.com" + (categoryItems[indexPath.row].image1?.replacingOccurrences(of: "~", with: ""))!), placeholderImage: UIImage(named: "placeholder"))
         cell.LblProductName.text = categoryItems[indexPath.row].productName;
         cell.LblMrpPrice.text = "Rs. "+String(describing: categoryItems[indexPath.row].mRP!);
         cell.LblSellingPrice.text = "Rs. "+String(describing: categoryItems[indexPath.row].sellingPrice!);
-        
         return cell;
         
     }
@@ -72,8 +77,8 @@ class ProductListViewController: UIViewController , UICollectionViewDelegate,UIC
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize
     {
-        
-        var size = CGSize(width: collectionView.frame.width / 2  - 20, height: 200)
+        var width = collectionView.frame.width / 2  - 10;
+        var size = CGSize(width: width, height: width * 1.5)
         return size
         
         
