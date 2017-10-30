@@ -16,6 +16,7 @@ class ProductListViewController: UIViewController , UICollectionViewDelegate,UIC
     
     @IBOutlet weak var CollectionVW: UICollectionView!
     var categoryItems:[ProductListNewResponseModel] = [ProductListNewResponseModel]()
+    var selectedCategoryItem:ProductListNewResponseModel!
     
     var pageType:String!
     var itemName:String!
@@ -24,6 +25,7 @@ class ProductListViewController: UIViewController , UICollectionViewDelegate,UIC
     
     override func viewDidLoad() {
         super.viewDidLoad()
+         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.revealViewController().rearViewRevealOverdraw=0;
         self.revealViewController().rearViewRevealWidth = self.view.frame.width-50;
         GetItems()
@@ -33,6 +35,13 @@ class ProductListViewController: UIViewController , UICollectionViewDelegate,UIC
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let VC = segue.destination as! ProductDetailControllerViewController
+        VC.product = selectedCategoryItem
+        VC.pageType = self.pageType
+        VC.itemName = self.itemName
     }
     
     func GetItems(){
@@ -67,7 +76,7 @@ class ProductListViewController: UIViewController , UICollectionViewDelegate,UIC
         
         cell.ProductImageIcon.sd_setImage(with: URL(string: "http://trendyfy.com" + (categoryItems[indexPath.row].image1?.replacingOccurrences(of: "~", with: ""))!), placeholderImage: UIImage(named: "placeholder"))
         cell.LblProductName.text = categoryItems[indexPath.row].productName;
-        cell.LblMrpPrice.text = "Rs. "+String(describing: categoryItems[indexPath.row].mRP!);
+        cell.LblMrpPrice.attributedText = Utility.GetStrikeThroughTxt(str: "Rs. "+String(describing: categoryItems[indexPath.row].mRP!));
         cell.LblSellingPrice.text = "Rs. "+String(describing: categoryItems[indexPath.row].sellingPrice!);
         return cell;
         
@@ -86,7 +95,8 @@ class ProductListViewController: UIViewController , UICollectionViewDelegate,UIC
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        selectedCategoryItem = categoryItems[indexPath.row]
+        self.performSegue(withIdentifier: "ProductDetailsSegue", sender: self)
     }
     
     

@@ -144,6 +144,12 @@ public class Utility{
         alertView.show()
     }
     
+    class  func GetStrikeThroughTxt(str:String) -> NSMutableAttributedString{
+        let attributeString : NSMutableAttributedString =  NSMutableAttributedString(string: str)
+        attributeString.addAttribute(NSStrikethroughStyleAttributeName, value: 2, range: NSMakeRange(0, attributeString.length))
+        return attributeString
+    
+    }
     
     
 }

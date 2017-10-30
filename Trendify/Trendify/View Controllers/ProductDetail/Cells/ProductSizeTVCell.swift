@@ -8,18 +8,56 @@
 
 import UIKit
 
-class ProductSizeTVCell: UITableViewCell {
+protocol CellSizeDelegate {
+    func SizeSelected(selected:Int);
+}
 
+class ProductSizeTVCell: UITableViewCell,UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+
+     var categoryItems:[ProductDetailsModel] = [ProductDetailsModel]()
+    var delegate:CellSizeDelegate!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+    
     @IBOutlet weak var LblSize: UILabel!
+    @IBOutlet weak var CollectionVW: UICollectionView!
 
+    
+    
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
+        return categoryItems.count;
+    }
+    
+    
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SizeCVCell", for: indexPath) as! SizeCVCell
+        cell.LblTitle.text = categoryItems[indexPath.row].size!
+        cell.LblTitle.borderColor = UIColor.black
+        cell.LblTitle.cornerRadius = Int(collectionView.frame.height / 2 - 10)
+        cell.LblTitle.borderWidth = 1
+        cell.LblTitle.masksToBounds = false
+        return cell;
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize
+    {
+        let height = collectionView.frame.height
+        return CGSize(width: height, height: height)
+        
+        
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if(delegate != nil ){
+        delegate.SizeSelected(selected: indexPath.row)
+        }
+    }
+    
 }

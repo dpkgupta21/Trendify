@@ -69,12 +69,12 @@ class HomeViewController: UIViewController , UICollectionViewDelegate,UICollecti
                         sizeForItemAt indexPath: IndexPath) -> CGSize
     {
         if(indexPath.row < 2){
-            let height = (collectionView.frame.width / 2  - 10);
+            let height = (collectionView.frame.width / 2  - 10) * 0.8;
             let size = CGSize(width: collectionView.frame.width, height: height)
             return size
         }else{
             let width = collectionView.frame.width / 2  - 10;
-            let size = CGSize(width: width, height: width)
+            let size = CGSize(width: width, height: width * 0.8)
             return size
         }
         

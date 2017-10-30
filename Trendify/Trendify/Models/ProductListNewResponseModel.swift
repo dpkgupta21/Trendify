@@ -9,6 +9,7 @@
 import UIKit
 
 class ProductListNewResponseModel: Decodable {
+   
     public var rOWNO : Int?
     public var sKUID : String?
     public var productName : String?

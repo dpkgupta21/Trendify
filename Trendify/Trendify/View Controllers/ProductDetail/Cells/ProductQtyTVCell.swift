@@ -15,12 +15,6 @@ class ProductQtyTVCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
     @IBOutlet weak var LblColor: UILabel!
     @IBOutlet weak var LblAvailableQty: UILabel!
     @IBOutlet weak var LblShippingCharge: UILabel!

@@ -80,14 +80,16 @@ class GroupCheckHelper: NSObject {
                 return "KitchenAppliances";
             case "ElectricKettle":
                 return "KitchenAppliances";
+            default :
+                return "";
             }
-            break;
         case 4:
             switch (childItem) {
             case "AllMobile":
                 return "ElectronicsMobiles";
+            default :
+                return "";
             }
-            break;
         case 5:
             switch (childItem) {
             //This is for KidsClothing
@@ -127,6 +129,8 @@ class GroupCheckHelper: NSObject {
                 return "ToyGames";
             case "Construction":
                 return "ToyGames";
+            default :
+                return "";
             }
             break;
         case 6:
@@ -156,10 +160,13 @@ class GroupCheckHelper: NSObject {
                 return "Bags";
             case "Trekking":
                 return "Bags";
+            default :
+                return "";
             }
-            break;
+            
+        default :
+            return "";
         }
-        return "";
     }
     
     
@@ -169,6 +176,8 @@ class GroupCheckHelper: NSObject {
             switch (childItem) {
             case "Grocery/Staples":
                 return true;
+            default :
+                return false;
             }
             break;
         case "Men":
@@ -179,6 +188,8 @@ class GroupCheckHelper: NSObject {
                 return true;
             case "Men Accessories":
                 return true;
+            default :
+                return false;
             }
             break;
         case "Women":
@@ -197,7 +208,10 @@ class GroupCheckHelper: NSObject {
                 return true;
             case "Bags":
                 return true;
+            default :
+                return false;
             }
+            
             break;
         case "Home & Lifestyle":
             switch (childItem) {
@@ -211,6 +225,8 @@ class GroupCheckHelper: NSObject {
                 return true;
             case "Kitchen Appliances":
                 return true;
+            default :
+                return false;
             }
             break;
         case "Electronics":
@@ -219,6 +235,8 @@ class GroupCheckHelper: NSObject {
                 return true;
             case "Computer Accessories":
                 return true;
+            default :
+                return false;
             }
             break;
         case "Kids":
@@ -231,6 +249,8 @@ class GroupCheckHelper: NSObject {
                 return true;
             case "Toy and Games":
                 return true;
+            default :
+                return false;
             }
             break;
         case "Books & Stationary":
@@ -243,10 +263,12 @@ class GroupCheckHelper: NSObject {
                 return true;
             case "Stationary":
                 return true;
+            default :
+                return false;
             }
-            break;
+        default :
+            return false;
         }
-        return false;
     }
     
     class func isTextHeading(groupItem: String , childItem: String) -> Bool {
@@ -257,6 +279,8 @@ class GroupCheckHelper: NSObject {
                 return true;
             case "Milk":
                 return true;
+            default :
+                return false;
             }
             break;
         case "Men":
@@ -267,6 +291,8 @@ class GroupCheckHelper: NSObject {
                 return true;
             case "Men Accessories":
                 return true;
+            default :
+                return false;
             }
             break;
         case "Women":
@@ -285,6 +311,8 @@ class GroupCheckHelper: NSObject {
                 return true;
             case "Bags":
                 return true;
+            default :
+                return false;
             }
             break;
         case "Home & Lifestyle":
@@ -299,6 +327,8 @@ class GroupCheckHelper: NSObject {
                 return true;
             case "Kitchen Appliances":
                 return true;
+            default :
+                return false;
             }
             break;
         case "Electronics":
@@ -307,6 +337,8 @@ class GroupCheckHelper: NSObject {
                 return true;
             case "Computer Accessories":
                 return true;
+            default :
+                return false;
             }
             break;
         case "Kids":
@@ -319,6 +351,8 @@ class GroupCheckHelper: NSObject {
                 return true;
             case "Toy & Games":
                 return true;
+            default :
+                return false;
             }
             break;
         case "Books & Stationary":
@@ -331,10 +365,12 @@ class GroupCheckHelper: NSObject {
                 return true;
             case "Stationary":
                 return true;
+            default :
+                return false;
             }
-            break;
+        default :
+            return false;
         }
-        return false;
     }
 }
 

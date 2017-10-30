@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ProductImageTVCell: UITableViewCell {
 
@@ -15,10 +16,11 @@ class ProductImageTVCell: UITableViewCell {
     }
     @IBOutlet weak var ImgProductIcon: UIImageView!
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func configureCell(image : String){
+        let img = image.components(separatedBy: ",")[0]
+        
+        ImgProductIcon.sd_setImage(with: URL(string: "http://trendyfy.com" + (img.replacingOccurrences(of: "~", with: ""))), placeholderImage: UIImage(named: "placeholder"))
     }
-
+    
+    
 }
