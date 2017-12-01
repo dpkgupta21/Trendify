@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProductDetailControllerViewController: UIViewController, UITableViewDelegate,UITableViewDataSource,CellSizeDelegate
+class ProductDetailControllerViewController: ParentViewController, UITableViewDelegate,UITableViewDataSource,CellSizeDelegate
 {
     
     @IBOutlet weak var TblVW: UITableView!
@@ -17,13 +17,18 @@ class ProductDetailControllerViewController: UIViewController, UITableViewDelega
     var productDetails : ProductDetailsResponseModel!
     var pageType:String!
     var itemName:String!
-    
+   
     var selectedSize : Int!
-    
-    override func viewDidLoad() {
+    var category: String = String()
+        override func viewDidLoad() {
         super.viewDidLoad()
         TblVW.estimatedRowHeight = 50;
         getData()
+           
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        calculateTotalCartItems();
     }
     
     override func didReceiveMemoryWarning() {
@@ -52,13 +57,49 @@ class ProductDetailControllerViewController: UIViewController, UITableViewDelega
         
     }
     
+ 
+    
     @IBAction func BuyNowClicked(_ sender: Any) {
+        CartDetail()
     }
     
+    
     @IBAction func AddCartClicked(_ sender: Any) {
-        var VC = self.storyboard?.instantiateViewController(withIdentifier: "CartViewController")
-        self.navigationController?.pushViewController(VC!, animated: true)
+        print("Add button pressed")
+        // Update the cart
+        let product:ProductDetailsModel;
+        if(selectedSize == nil){
+            Utility.showToast(text: "Please select size.")
+        }else{
+           product=productDetails.ProductDetails[selectedSize];
+        
+           var array = CategoryItem.cartItemsArray;
+
+            if let index = array.index(where:
+                {$0.uOMID == product.uOMID}){
+                print("Item is contained at index -> \(index)")
+                
+                let temp = array[index];
+                
+                if((temp.orderQty) < product.avaliableQty!){
+                    temp.orderQty = temp.orderQty+1
+                    let newItemAtIndex = temp
+                    CategoryItem.cartItemsArray[index] = newItemAtIndex
+                }
+             
+            }
+            else{
+                CategoryItem.cartItemsArray.append(product)
+            }
+        
+        calculateTotalCartItems();
     }
+    }
+    
+    
+    
+    
+   
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

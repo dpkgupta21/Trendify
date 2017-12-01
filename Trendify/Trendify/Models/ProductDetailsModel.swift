@@ -22,9 +22,10 @@ class ProductDetailsModel: Decodable {
     public var size : String?
     public var color : String?
     public var avaliableQty : Int?
+    public var orderQty:Int = 1
     
     public required init?(json: JSON) {
-        uOMID = ("uOMID" <~~ json)
+        uOMID = ("UOMID" <~~ json)
         sKUID = ("SKUID" <~~ json)
         productName = ("ProductName" <~~ json)
         image1 = ("Image1" <~~ json)

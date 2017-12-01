@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-class ProductListViewController: UIViewController , UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
+class ProductListViewController: ParentViewController , UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     
     @IBOutlet weak var MenuBtn: UIBarButtonItem!
@@ -29,8 +29,12 @@ class ProductListViewController: UIViewController , UICollectionViewDelegate,UIC
         self.revealViewController().rearViewRevealOverdraw=0;
         self.revealViewController().rearViewRevealWidth = self.view.frame.width-50;
         GetItems()
-        
+     
     }
+    override func viewWillAppear(_ animated: Bool) {
+        calculateTotalCartItems();
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -73,6 +77,9 @@ class ProductListViewController: UIViewController , UICollectionViewDelegate,UIC
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCVCell", for: indexPath) as! ProductCVCell
+       
+        
+        print("http://trendyfy.com\(String(describing: categoryItems[indexPath.row].image1!))")
         
         cell.ProductImageIcon.sd_setImage(with: URL(string: "http://trendyfy.com" + (categoryItems[indexPath.row].image1?.replacingOccurrences(of: "~", with: ""))!), placeholderImage: UIImage(named: "placeholder"))
         cell.LblProductName.text = categoryItems[indexPath.row].productName;

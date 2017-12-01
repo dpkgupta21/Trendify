@@ -19,6 +19,10 @@ class CategoryItem: Decodable {
     public var nonClickablePostion:Array<Int>?
     public var isExpanded:Bool
     
+    // Array to hold items in the cart
+    static var cartItemsArray:[ProductDetailsModel] = []
+    static var cartSectionsArray: [String] = []
+    
     public required init?(json: JSON) {
         category = ("category" <~~ json)!
         categoryImageName = ("categoryImageName" <~~ json)!

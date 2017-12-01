@@ -19,13 +19,16 @@ class UserDeafultsManager: NSObject {
     
     
     let IsLoginKey = "IsLogin"
+    let LoginDataKey = "LoginDataKey"
     let CompanyIDKey = "CompanyID"
     let MemberIDKey = "MemberID"
     let UsernameKey = "UsernameKey"
     let PasswordKey = "PasswordKey"
     let FirstNameKey = "FirstNameKey"
     let LastNameKey = "LastNameKey"
-    
+    let CartAmountKey = "CartAmountKey"
+    let MobileNoKey = "MobileNoKey"
+    let AddressWithCityKey="AddressWithCityKey"
     
     
     var IsLoggedIn : Bool{
@@ -47,9 +50,9 @@ class UserDeafultsManager: NSObject {
         
     }
     
-    var MemberID : String{
+    var MemberID : Int{
         get{
-            return UserDefaults.standard.string(forKey: MemberIDKey)!
+            return UserDefaults.standard.integer(forKey: MemberIDKey)
         }
         set (value){
             UserDefaults.standard.set(value, forKey: MemberIDKey)
@@ -97,5 +100,45 @@ class UserDeafultsManager: NSObject {
         
     }
     
+    var CartAmount : String{
+        get{
+            return UserDefaults.standard.string(forKey: CartAmountKey) ?? ""
+        }
+        set (value){
+            UserDefaults.standard.set(value, forKey: CartAmountKey)
+        }
+        
+    }
+    
+    var MobileNo : String{
+        get{
+            return UserDefaults.standard.string(forKey: MobileNoKey) ?? ""
+        }
+        set (value){
+            UserDefaults.standard.set(value, forKey: MobileNoKey)
+        }
+        
+    }
+    
+    
+    var AddressWithCity : String{
+        get{
+            return UserDefaults.standard.string(forKey: AddressWithCityKey) ?? ""
+        }
+        set (value){
+            UserDefaults.standard.set(value, forKey: AddressWithCityKey)
+        }
+        
+    }
 
+    var LoginData : String{
+        get{
+            return UserDefaults.standard.string(forKey: LoginDataKey) ?? ""
+        }
+        set (value){
+            UserDefaults.standard.set(value, forKey: LoginDataKey)
+        }
+        
+    }
+    
 }

@@ -101,7 +101,7 @@ public class Utility{
             hud.label.text = text
             hud.show(animated: true)
             hud.hide(animated: true, afterDelay: 3)
-            
+            hud.offset = CGPoint(x: 0, y: MBProgressMaxOffset)
         }
         else
         {
@@ -114,9 +114,7 @@ public class Utility{
             })
         }
     }
-    
-    
-    
+   
     class func showAlertWithInfo(infoDic : NSDictionary)
     {
         var tag : Int = 0
@@ -151,6 +149,10 @@ public class Utility{
     
     }
     
+   
+
+    
+   
     
 }
 
