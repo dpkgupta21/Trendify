@@ -65,7 +65,8 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         {
             lblCustomerName.text=UserDeafultsManager.SharedDefaults.FirstName;
             lblCustomerEmail.text=UserDeafultsManager.SharedDefaults.Username;
-            
+            lblSingleLetter.text = String(describing: lblCustomerName.text!.characters.first!).uppercased()
+       
             self.ViewLogin.isHidden=false;
             
         }

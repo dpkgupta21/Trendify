@@ -56,79 +56,81 @@ class DeliverySummaryViewController: UIViewController {
     
     @IBAction func btnActionOnlinePayment(_ sender: Any) {
         
+        Utility.showProgressHud(text: "");
         
-        let VC:PaymentPageViewController = self.storyboard?.instantiateViewController(withIdentifier: "PaymentPageViewController") as! PaymentPageViewController
+        let str :String = UserDeafultsManager.SharedDefaults.LoginData
         
-        VC.email = UserDeafultsManager.SharedDefaults.Username
-        VC.amount = String(cartAmount+cashbackAmount);
-        VC.firstname = UserDeafultsManager.SharedDefaults.FirstName
-        VC.phone = UserDeafultsManager.SharedDefaults.MobileNo
-        VC.productInfo="Product_purchase"
-        self.navigationController?.pushViewController(VC, animated: true)
-  
+        let jsonObj:JSON = str.toJSON() as! JSON
+        
+        let login = LoginResponseModel(json: jsonObj)
+        
+        OnlinePayment(LoginData: login!, cashback: Int(cashbackAmount))
+     
     }
     
-    
-    
-//    func Makepayment()
-//    {
-//        
-//        let phone = "983737373"
-//        let productName = "Shirt"
-//        let firstName = "Ghanshyam"
-//        let txnId = "3222111"
-//        let email = "testtest.com"
-//        let sUrl = "http://trendyfy.com/SuccessPage.aspx"
-//        let fUrl = "http://trendyfy.com/SuccessPage.aspx"
-//        let udf1 = ""
-//        let udf2 = ""
-//        let udf3 = ""
-//        let udf4 = ""
-//        let udf5 = ""
-//        let isDebug = false
-//        let key = "KtqxYg"
-//        let merchantId = "4799617"
-//        
-//        hash
-//    let hashSequence = key|txnId|amount|productName|firstName|email|udf1|udf2|udf3|udf4|udf5||||||salt
-//        let hash = hash("sha512", hashSequence);
-//        
-//        
-//        
-//        let txnParam = PUMTxnParam()
-//        
-//        txnParam.phone = "9717410858";
-//        txnParam.email = "umangarya336gmail.com";
-//        txnParam.amount = "123";
-//        txnParam.environment = PUMEnvironmentProduction;
-//        txnParam.firstname = "Umang";
-//        txnParam.key = "merchantKey";
-//        txnParam.merchantid = "MerchantID";
-//        txnParam.txnID = "txnID123";
-//        txnParam.surl = "https://www.payumoney.com/mobileapp/payumoney/success.php";
-//        txnParam.furl = "https://www.payumoney.com/mobileapp/payumoney/failure.php";
-//        txnParam.productInfo = "iPhone7";
-//        txnParam.udf1 = "userDefinedField1";
-//        txnParam.udf2 = "userDefinedField2";
-//        txnParam.udf3 = "userDefinedField3";
-//        txnParam.udf4 = "userDefinedField4";
-//        txnParam.udf5 = "userDefinedField5";
-//        txnParam.udf6 = "userDefinedField6";
-//        txnParam.udf7 = "userDefinedField7";
-//        txnParam.udf8 = "userDefinedField8";
-//        txnParam.udf9 = "userDefinedField9";
-//        txnParam.udf10 = "userDefinedField10";
-//        txnParam.hashValue = "HashFromServer";
-//        
-//        
-//        
-//        
-//    }
+    func OnlinePayment(LoginData:LoginResponseModel,cashback:Int)
+    {
+        let dictionary = [
+            "ipaddress" : LoginData.a_Id!,
+            "ShippingCustomerName" : LoginData.sName!,
+            "ShippingEmail" : LoginData.email!,
+            "ShippingAddress" : LoginData.sAddress!,
+            "ShippingMobileNo" : LoginData.mobileNo!,
+            "ShippingCity" : LoginData.sCity!,
+            "Shippingstate" : LoginData.sStateID!,
+            "shippingPinCode" : LoginData.sPincode!,
+            "Cashbackamount" : cashback,
+            "cardnumber" : "",
+            "Nameofcard" : ""
+            ] as [String : Any]
+        
+        WebserviceCommunication.defaultCommunicator().httpPOSTEncodedString(methodName: METHOD_ONLINEPAYMENT ,body:dictionary as NSDictionary )
+        { (data, statusCode, error) in
+            
+            if (data != nil)
+            {
+                let datastring = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+                print(datastring!)
+                
+                
+                if(statusCode==200)
+                {
+                   Utility.hideProgressHud()
+                    
+                    let VC:PaymentPageViewController = self.storyboard?.instantiateViewController(withIdentifier: "PaymentPageViewController") as! PaymentPageViewController
+                    
+                    VC.email = UserDeafultsManager.SharedDefaults.Username
+                    VC.amount = String(self.cartAmount+self.cashbackAmount);
+                    VC.firstname = UserDeafultsManager.SharedDefaults.FirstName
+                    VC.phone = UserDeafultsManager.SharedDefaults.MobileNo
+                    VC.productInfo="Product_purchase"
+                    self.navigationController?.pushViewController(VC, animated: true)
+                    
+                }else{
+                     Utility.hideProgressHud()
+                    let info = ["title":"Error",
+                                "message":error,
+                                "cancel":"Ok"]
+                    Utility.showAlertWithInfo(infoDic: info as NSDictionary)
+                }
+                
+            }else{
+                 Utility.hideProgressHud()
+                let info = ["title":"Error",
+                            "message":error,
+                            "cancel":"Ok"]
+                Utility.showAlertWithInfo(infoDic: info as NSDictionary)
+            }
+            
+        }
+    }
     
     
     
     func CashOnDelivery(LoginData:LoginResponseModel,cashback:Int)
     {
+        Utility.showProgressHud(text: "");
+        
         let dictionary = [
             "ipaddress" : LoginData.a_Id!,
             "ShippingCustomerName" : LoginData.sName!,
@@ -152,6 +154,7 @@ class DeliverySummaryViewController: UIViewController {
                 
                 if(statusCode==200)
                 {
+                     Utility.hideProgressHud()
                    let aStr = String(format: "Your order has confirmed. You need to pay total amount % If you have any query call us 011-45727796.",self.lblPayableAmount.text!)
                     
                     self.SendMessage(phoneNo: "9799888646", Message: aStr)
@@ -166,7 +169,7 @@ class DeliverySummaryViewController: UIViewController {
                     
                     
                 }else{
-                    
+                     Utility.hideProgressHud()
                     let info = ["title":"Error",
                                 "message":error,
                                 "cancel":"Ok"]
@@ -174,6 +177,7 @@ class DeliverySummaryViewController: UIViewController {
                 }
                 
             }else{
+                 Utility.hideProgressHud()
                 let info = ["title":"Error",
                             "message":error,
                             "cancel":"Ok"]
@@ -227,12 +231,7 @@ class DeliverySummaryViewController: UIViewController {
   
     }
     
-    
-    
-    
-    
-    
-    
+  
     func CustomerCashback(username:String)
     {
         let dictionary = [

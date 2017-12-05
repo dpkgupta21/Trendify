@@ -50,8 +50,10 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIPickerViewDel
             let login = LoginResponseModel(json: jsonObj)
             txtCustomerName.text = login?.name
              txtPassword.text = login?.password
+            txtConfirmPassword.text = login?.password
             txtPassword.isUserInteractionEnabled=false
             txtConfirmPassword.isUserInteractionEnabled=false
+            txtEmailID.isUserInteractionEnabled=false
             txtEmailID.text = login?.email
             txtAddress.text = login?.address
             txtMobileNo.text = login?.mobileNo
@@ -69,20 +71,89 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIPickerViewDel
             btnSignUp.setTitle("Sign Up", for: UIControlState.normal)
             txtPassword.isUserInteractionEnabled=true
             txtConfirmPassword.isUserInteractionEnabled=true
+            txtEmailID.isUserInteractionEnabled=true
         }
     }
     
     
     
     @IBAction func btnActionSignUp(_ sender: Any) {
-        if (isvalidate() == true) {
-            SignUp()
+        if(UserDeafultsManager.SharedDefaults.IsLoggedIn==true && UserDeafultsManager.SharedDefaults.LoginData.characters.count>0){
+            if(isUpdateProfilevalidate()==true)
+            {
+                UpdateProfile()
+            }
+            
+        }
+        else
+        {
+            if (isvalidate() == true) {
+                SignUp()
+            }
         }
     }
 
     
+    func UpdateProfile()
+    {
+        Utility.showProgressHud(text: "")
+        
+        let dictionary = [
+            "ShippingCustomerName" : txtCustomerName.text!,
+            "ShippingEmail" : txtEmailID.text!,
+            "ShippingAddress" : txtAddress.text!,
+            "ShippingMobileNo" : txtMobileNo.text!,
+            "ShippingCity" : txtCity.text!,
+            "Shippingstate" : selectedState,
+            "shippingPinCode" : txtPincode.text!,
+            ] as [String : Any]
+        
+        WebserviceCommunication.defaultCommunicator().httpPOSTEncodedString(methodName: METHOD_UPDATEPROFILE ,body:dictionary as NSDictionary )
+        { (data, statusCode, error) in
+            
+            if (data != nil)
+            {
+                let datastring = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+                print(datastring!)
+                
+                
+                if(statusCode==200)
+                {
+                    Utility.hideProgressHud()
+                    
+                    let info = ["title": "Trendify",
+                                "message":"Profile has been update sucessfully.",
+                                "cancel":"Ok"]
+                    Utility.showAlertWithInfo(infoDic: info as NSDictionary)
+                    
+                    self.navigationController?.popToRootViewController(animated: true)
+                    
+                }else{
+                    
+                    Utility.hideProgressHud()
+                    let info = ["title": "Error",
+                                "message":error?.description,
+                                "cancel":"Ok"]
+                    Utility.showAlertWithInfo(infoDic: info as NSDictionary)
+                    
+                }
+                
+            }else{
+                Utility.hideProgressHud()
+                let info = ["title": "Trendify",
+                            "message":error?.description,
+                            "cancel":"Ok"]
+                Utility.showAlertWithInfo(infoDic: info as NSDictionary)
+            }
+            
+        }
+    }
+    
+    
+    
     func SignUp()
     {
+        Utility.showProgressHud(text: "")
         let dictionary = [
             "CustomerName" : txtCustomerName.text!,
             "CustomerPassword" : txtPassword.text!,
@@ -99,12 +170,15 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIPickerViewDel
             
             if (data != nil)
             {
+               
                 let datastring = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
                 print(datastring!)
                 
                 
                 if(statusCode==200)
                 {
+                     Utility.hideProgressHud()
+                    
                     let info = ["title": "Trendify",
                                 "message":"Registration save sucessfully. Login for further Process.",
                                 "cancel":"Ok"]
@@ -113,12 +187,19 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIPickerViewDel
                         self.navigationController?.popToRootViewController(animated: true)
                     
                 }else{
-                    
-                    
+                     Utility.hideProgressHud()
+                    let info = ["title": "Error",
+                                "message":error?.description,
+                                "cancel":"Ok"]
+                    Utility.showAlertWithInfo(infoDic: info as NSDictionary)
                 }
                 
             }else{
-                
+                 Utility.hideProgressHud()
+                let info = ["title": "Error",
+                            "message":error?.description,
+                            "cancel":"Ok"]
+                Utility.showAlertWithInfo(infoDic: info as NSDictionary)
             }
             
         }
@@ -129,6 +210,52 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIPickerViewDel
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func isUpdateProfilevalidate() -> Bool {
+        var valid:Bool=true;
+        var str:String! = ""
+        
+        if ((txtCustomerName.text?.characters.count)! == 0) {
+            valid=false;
+            str="Please enter customer name."
+        }
+        else if ((txtEmailID.text?.characters.count)! == 0) {
+            valid=false;
+            str="Please enter username."
+        }
+        else if ((txtMobileNo.text?.characters.count)! == 0) {
+            valid=false;
+            str="Please enter mobile number."
+        }
+        else if ((txtAddress.text?.characters.count)! == 0 ||  txtAddress.text=="Enter Address") {
+            valid=false;
+            str="Please enter address."
+        }
+        else if ((txtState.text?.characters.count)! == 0) {
+            valid=false;
+            str="Please select State"
+        }
+        else if ((txtCity.text?.characters.count)! == 0) {
+            valid=false;
+            str="Please enter city."
+        }
+        else if ((txtPincode.text?.characters.count)! == 0) {
+            valid=false;
+            str="Please enter pincode."
+        }
+        
+        if valid==false {
+            let info = ["title": str,
+                        "message":nil,
+                        "cancel":"Ok"]
+            Utility.showAlertWithInfo(infoDic: info as NSDictionary)
+        }
+        
+        return valid;
+        
+    }
+
+    
     
     func isvalidate() -> Bool {
         var valid:Bool=true;

@@ -47,7 +47,9 @@ let METHOD_INSERTITEMINTOCART = "InsertItemIntoChartJSON"
 let METHOD_CASHONDELIVERY = "InsertIntopaymentMasterJSON"
 let METHOD_STATELIST = "GeStateJSON"
 let METHOD_SIGNUP = "CustomerRegistrationJSON"
-
+let METHOD_UPDATEPROFILE = "CustomerShippingDetailJSON"
+let METHOD_ONLINEPAYMENT = "InsertIntopaymentMasterOnlinePaymentJSON"
+let METHOD_ONLINEPAYMENTSUCCESS = "InsertIntopaymentMasterforsuccessJSON"
 
 let extraStr1 = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<string xmlns=\"http://tempuri.org/\">"
 let extraStr2 = "</string>"
